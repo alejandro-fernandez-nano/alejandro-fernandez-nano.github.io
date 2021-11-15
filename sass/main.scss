@@ -1,0 +1,256 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+/* font-family: 'Montserrat', sans-serif; */
+
+/* Variables */
+$font1: "Montserrat", sans-serif;
+$font2: "Montserrat Light 300", sans-serif;
+$color1: #ffffff;
+$color2: #000000;
+$color3: #353131;
+$color4: #1973c8;
+$color5: #fdfcdc;
+
+body {
+  margin: 0;
+  font-family: $font1;
+}
+a {
+  color: $color2;
+  text-decoration: none;
+  &:hover {
+    color: $color4;
+    font-weight: bold;
+  }
+}
+p {
+  margin: 0;
+}
+
+/* HEADER (LOGO + MENU en FLEX)*/
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px dotted $color3;
+}
+/* LOGO */
+.logo {
+  min-width: 230px;
+  max-width: 300px;
+  margin: 5px;
+  &__title {
+    margin: 0;
+    font-size: 1.5rem;
+    @media screen and (max-width: 1024px) {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+  }
+  &__description {
+    margin: 0;
+    color: lighten($color3, 30);
+    font-size: 1rem;
+    text-align: center;
+    @media screen and (max-width: 1024px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+  &__btn {
+    width: 100px;
+    margin: 20px auto;
+    text-align: center;
+    @media screen and (max-width: 1024px) {
+      width: 40%;
+      font-size: 2rem;
+    }
+    & i {
+      color: $color4;
+    }
+  }
+}
+
+/* PRESENTATION */
+.presentation {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap-reverse;
+  &__left--pic {
+    width: 30%;
+    object-fit: cover;
+    margin: 0 40px;
+    border-radius: 40px;
+    @media screen and (max-width: 1024px) {
+      width: 50%;
+      height: 600px;
+    }
+  }
+  &__right {
+    width: 50%;
+    padding: 20px;
+    @media screen and (max-width: 1024px) {
+      width: 80%;
+    }
+    &--title {
+      margin: 20px auto;
+      font-size: 3rem;
+      text-align: center;
+      @media screen and (max-width: 1024px) {
+        font-size: 5rem;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 300px;
+        margin: 30px auto 0;
+        border: 2px solid $color4;
+      }
+    }
+    &--description {
+      margin: 40px auto;
+      /* font-family: $font2; */
+      font-size: 1.5rem;
+      text-align: justify;
+      @media screen and (max-width: 1024px) {
+        margin: 40px auto;
+      }
+    }
+    &--btn {
+      display: block;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      background: $color4;
+      border-style: none;
+      border-radius: 15px;
+      color: $color1;
+      font-size: 1.5rem;
+      @media screen and (max-width: 1024px) {
+        margin-top: 50px;
+        font-size: 3rem;
+      }
+      &:hover {
+        background: lighten($color4, 10);
+      }
+      &:active {
+        background: darken($color4, 10);
+      }
+    }
+  }
+}
+
+/* CONTACT */
+.my {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 80%;
+  height: 350px;
+  margin: 50px auto;
+  @media screen and (max-width: 1024px) {
+    height: auto;
+  }
+  /*   border: 2px dotted $color4;
+  border-radius: 15px; */
+  &__left {
+    width: 50%;
+    border-radius: 15px;
+    object-fit: cover;
+    @media screen and (max-width: 1024px) {
+      width: 80%;
+    }
+  }
+  &__right {
+    width: 50%;
+    margin-top: 20px;
+    text-align: center;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+    &--firstname {
+      margin: 30px 0 0;
+      font-size: 3rem;
+      @media screen and (max-width: 1024px) {
+        font-size: 6rem;
+      }
+    }
+    &--lastname {
+      margin: 0;
+      font-size: 2.5rem;
+      @media screen and (max-width: 1024px) {
+        font-size: 5rem;
+      }
+    }
+    &--job {
+      margin: 10px 0;
+      font-size: 1.5rem;
+      @media screen and (max-width: 1024px) {
+        font-size: 3rem;
+      }
+    }
+    &--state {
+      margin-top: 0;
+      font-size: 1.5rem;
+      @media screen and (max-width: 1024px) {
+        font-size: 3rem;
+      }
+    }
+  }
+  &__location {
+    & iframe {
+      border-radius: 30px;
+    }
+  }
+}
+
+.contact {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0px auto;
+  padding: 50px 0;
+  &__link {
+    width: 18%;
+    min-width: 285px;
+    margin: 20px 0;
+    text-align: center;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  &__logo {
+    & i {
+      padding: 1.6rem;
+      background: lighten($color3, 60);
+      border-radius: 50%;
+      font-size: 3rem;
+      color: $color4;
+      @media screen and (max-width: 1024px) {
+        padding: 3rem;
+        font-size: 6rem;
+      }
+    }
+  }
+  &__description {
+    color: $color4;
+    font-size: 1.5rem;
+    @media screen and (max-width: 1024px) {
+      margin: 20px;
+      font-size: 3rem;
+    }
+  }
+  &__info {
+    font-size: 1.2rem;
+    @media screen and (max-width: 1024px) {
+      margin: 20px;
+      font-size: 2.5rem;
+    }
+  }
+}
