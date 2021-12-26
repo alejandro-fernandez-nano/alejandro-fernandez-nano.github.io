@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
 /* font-family: 'Montserrat', sans-serif; */
 
-/* Variables */
+//---------------------------------------------------
+//                     VARIABLES
+//---------------------------------------------------
 $font1: "Montserrat", sans-serif;
 $font2: "Montserrat Light 300", sans-serif;
 $color1: #ffffff;
@@ -11,9 +13,13 @@ $color3: #353131;
 $color4: #1973c8;
 $color5: #fdfcdc;
 
-body {
+//---------------------------------------------------
+//                   GENERAL SETTING
+//---------------------------------------------------
+* {
   margin: 0;
   font-family: $font1;
+  box-sizing: border-box;
 }
 a {
   color: $color2;
@@ -26,13 +32,41 @@ a {
 p {
   margin: 0;
 }
+//---------------------------------------------------
+//                     KEYFRAMES
+//---------------------------------------------------
+@keyframes pulse-btn {
+  20% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  25% {
+    transform: scale(1.1);
+    animation-timing-function: ease-in;
+  }
+  30% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+}
+//---------------------------------------------------
+//                       INDEX BG
+//---------------------------------------------------
+.index--bg {
+  background: url("../img/pexels-gdtography-911738.jpg") center/cover;
+  height: 100vh;
+}
 
-/* HEADER (LOGO + MENU en FLEX)*/
+//---------------------------------------------------
+//                       HEADER
+//---------------------------------------------------
 header {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   border-bottom: 1px dotted $color3;
+  background: $color1;
 }
 /* LOGO */
 .logo {
@@ -43,7 +77,7 @@ header {
     margin: 0;
     font-size: 1.5rem;
     @media screen and (max-width: 1024px) {
-      font-size: 2.5rem;
+      font-size: 2rem;
       text-align: center;
     }
   }
@@ -53,12 +87,18 @@ header {
     font-size: 1rem;
     text-align: center;
     @media screen and (max-width: 1024px) {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
   }
 }
 
-/* MENU */
+//---------------------------------------------------
+//                       MENU
+//---------------------------------------------------
+#active {
+  color: $color4;
+  font-weight: bold;
+}
 .menu {
   display: flex;
   justify-content: right;
@@ -69,138 +109,151 @@ header {
     text-align: center;
     @media screen and (max-width: 1024px) {
       width: 40%;
-      font-size: 2rem;
-    }
-    & i {
-      color: $color4;
+      font-size: 1.5rem;
     }
   }
 }
 
-/* PRESENTATION */
+//---------------------------------------------------
+//                  PRESENTATION
+//---------------------------------------------------
 .presentation {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap-reverse;
-  &__left--pic {
-    width: 30%;
-    object-fit: cover;
-    margin: 0 40px;
-    border-radius: 40px;
-    @media screen and (max-width: 1024px) {
-      width: 50%;
-      height: 600px;
+  text-align: center;
+  &--title {
+    margin: 0;
+    padding-top: 5vh;
+    font-size: 5rem;
+    color: $color2;
+    &::after {
+      content: "";
+      display: block;
+      width: 300px;
+      margin: 30px auto 0;
+      border: 2px solid $color4;
     }
   }
-  &__right {
-    width: 50%;
-    padding: 20px;
+  &--description {
+    width: 900px;
+    margin: 30px auto;
+    color: $color2;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-align: justify;
+    &::before {
+      content: "\275D";
+      color: $color4;
+    }
+    &::after {
+      content: "\275E";
+      color: $color4;
+    }
     @media screen and (max-width: 1024px) {
       width: 80%;
     }
-    &--title {
-      margin: 20px auto;
-      font-size: 3rem;
-      text-align: center;
-      @media screen and (max-width: 1024px) {
-        font-size: 5rem;
-      }
-      &::after {
-        content: "";
-        display: block;
-        width: 300px;
-        margin: 30px auto 0;
-        border: 2px solid $color4;
-      }
-    }
-    &--description {
-      margin: 40px auto;
-      /* font-family: $font2; */
-      font-size: 1.5rem;
-      text-align: justify;
-      @media screen and (max-width: 1024px) {
-        margin: 40px auto;
-      }
-    }
-    &--btn {
-      display: block;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      background: $color4;
-      border-style: none;
-      border-radius: 15px;
+  }
+  &--btn {
+    display: block;
+    width: 170px;
+    background: $color4;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 15px;
+    color: $color1;
+    font-weight: bold;
+    transition: 300ms;
+    animation: pulse-btn 5s ease-in-out infinite both;
+    cursor: pointer;
+    &:hover {
+      animation: none;
       color: $color1;
-      font-size: 1.5rem;
-      @media screen and (max-width: 1024px) {
-        margin-top: 50px;
-        font-size: 3rem;
-      }
-      &:hover {
-        background: lighten($color4, 10);
-      }
-      &:active {
-        background: darken($color4, 10);
-      }
+      font-size: 1.1rem;
+    }
+    @media screen and (max-width: 1024px) {
+      font-size: 2rem;
+      width: 300px;
     }
   }
 }
 
-/* CONTACT */
+//---------------------------------------------------
+//                     FOOTER
+//---------------------------------------------------
+.foot {
+  width: 100%;
+  padding: 5px 0;
+  background: $color1;
+  border-top: 1px dotted $color3;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  // @media screen and (max-width: 1024px) {
+  //   position: none;
+  // }
+}
+
+//---------------------------------------------------
+//                     CONTACT
+//---------------------------------------------------
+.contact--bg {
+  position: relative;
+  height: 100vh;
+  @media screen and (max-width: 1024px) {
+    height: auto;
+  }
+}
+//---------------------------------------------------
+//                   PRESENTATION
+//---------------------------------------------------
 .my {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   overflow: hidden;
-  width: 80%;
-  height: 350px;
-  margin: 50px auto;
+  width: 1000px;
+  height: 80vh;
+  margin: 30px auto;
   @media screen and (max-width: 1024px) {
     height: auto;
+    width: 100%;
+    margin: 0;
   }
-  /*   border: 2px dotted $color4;
-  border-radius: 15px; */
   &__left {
-    width: 50%;
+    width: 500px;
+    height: 100%;
     border-radius: 15px;
     object-fit: cover;
+    filter: grayscale(80%);
     @media screen and (max-width: 1024px) {
-      width: 80%;
+      width: 60%;
+      margin: 40px auto;
     }
   }
   &__right {
-    width: 50%;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 500px;
+    margin-top: 0px;
     text-align: center;
     @media screen and (max-width: 1024px) {
       width: 100%;
+      margin: 40px auto;
     }
     &--firstname {
-      margin: 30px 0 0;
+      margin: 20px 0 0;
       font-size: 3rem;
-      @media screen and (max-width: 1024px) {
-        font-size: 6rem;
-      }
     }
     &--lastname {
       margin: 0;
       font-size: 2.5rem;
-      @media screen and (max-width: 1024px) {
-        font-size: 5rem;
-      }
     }
     &--job {
       margin: 10px 0;
       font-size: 1.5rem;
-      @media screen and (max-width: 1024px) {
-        font-size: 3rem;
-      }
     }
     &--state {
       margin-top: 0;
       font-size: 1.5rem;
-      @media screen and (max-width: 1024px) {
-        font-size: 3rem;
-      }
     }
   }
   &__location {
@@ -211,15 +264,10 @@ header {
 }
 
 .contact {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 0px auto;
-  padding: 50px 0;
+  margin: 30px;
   &__link {
-    width: 18%;
-    min-width: 285px;
-    margin: 20px 0;
+    display: block;
+    margin: 40px auto;
     text-align: center;
     @media screen and (max-width: 1024px) {
       width: 100%;
@@ -227,30 +275,20 @@ header {
   }
   &__logo {
     & i {
-      padding: 1.6rem;
+      padding: 1rem;
       background: lighten($color3, 60);
       border-radius: 50%;
-      font-size: 3rem;
+      font-size: 2rem;
       color: $color4;
-      @media screen and (max-width: 1024px) {
-        padding: 3rem;
-        font-size: 6rem;
-      }
     }
   }
   &__description {
+    margin-top: 5px;
     color: $color4;
     font-size: 1.5rem;
-    @media screen and (max-width: 1024px) {
-      margin: 20px;
-      font-size: 3rem;
-    }
   }
   &__info {
+    margin-top: 5px;
     font-size: 1.2rem;
-    @media screen and (max-width: 1024px) {
-      margin: 20px;
-      font-size: 2.5rem;
-    }
   }
 }
